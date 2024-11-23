@@ -12,11 +12,12 @@ public class StatisticDTO {
     public static List<List<Double>> getRevenueAndSalesData(int year) {
         EntityManager entityManager = DBUtil.getEntityManager();
         try {
-            String jpql = "SELECT FUNCTION('MONTH', p.paymentDate), SUM(p.money), COUNT(p.paymentID) " +
+            String jpql = "SELECT FUNCTION('MONTH', COALESCE(p.paymentDate, p.order.orderDate)), " +
+                    "SUM(p.money), COUNT(p.paymentID) " +
                     "FROM Payment p " +
-                    "WHERE FUNCTION('YEAR', p.paymentDate) = :year " +
-                    "GROUP BY FUNCTION('MONTH', p.paymentDate) " +
-                    "ORDER BY FUNCTION('MONTH', p.paymentDate)";
+                    "WHERE FUNCTION('YEAR', COALESCE(p.paymentDate, p.order.orderDate)) = :year " +
+                    "GROUP BY FUNCTION('MONTH', COALESCE(p.paymentDate, p.order.orderDate)) " +
+                    "ORDER BY FUNCTION('MONTH', COALESCE(p.paymentDate, p.order.orderDate))";
 
             TypedQuery<Object[]> query = entityManager.createQuery(jpql, Object[].class);
             query.setParameter("year", year);
@@ -107,7 +108,7 @@ public class StatisticDTO {
             // JPQL để tính tổng doanh thu và số lượng đơn bán cho một năm
             String jpql = "SELECT SUM(p.money), COUNT(p.paymentID) " +
                     "FROM Payment p " +
-                    "WHERE FUNCTION('YEAR', p.paymentDate) = :year";
+                    "WHERE FUNCTION('YEAR', COALESCE(p.paymentDate, p.order.orderDate)) = :year";
 
             TypedQuery<Object[]> query = entityManager.createQuery(jpql, Object[].class);
             query.setParameter("year", year);
@@ -171,7 +172,7 @@ public class StatisticDTO {
         EntityManager entityManager = DBUtil.getEntityManager();
         try {
             // JPQL query để lấy các payment theo năm
-            String jpql = "SELECT p FROM Payment p WHERE FUNCTION('YEAR', p.paymentDate) = :year ORDER BY p.paymentDate DESC";
+            String jpql = "SELECT p FROM Payment p WHERE FUNCTION('YEAR', COALESCE(p.paymentDate, p.order.orderDate)) = :year ORDER BY COALESCE(p.paymentDate, p.order.orderDate) DESC";
             TypedQuery<Payment> query = entityManager.createQuery(jpql, Payment.class);
             query.setParameter("year", year);
             return query.getResultList();
@@ -183,7 +184,7 @@ public class StatisticDTO {
         EntityManager entityManager = DBUtil.getEntityManager();
         try {
             // JPQL query để lấy tất cả các payment
-            String jpql = "SELECT p FROM Payment p ORDER BY p.paymentDate DESC";
+            String jpql = "SELECT p FROM Payment p ORDER BY COALESCE(p.paymentDate, p.order.orderDate) DESC";
             TypedQuery<Payment> query = entityManager.createQuery(jpql, Payment.class);
             return query.getResultList();
         } finally {
