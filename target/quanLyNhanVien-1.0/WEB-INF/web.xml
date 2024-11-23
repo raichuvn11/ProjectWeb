@@ -9,11 +9,11 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-    	<welcome-file>listNV.jsp</welcome-file>
+    	<welcome-file>listStaff.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>CouponController</servlet-name>
-        <servlet-class>controller.CouponController</servlet-class>
+        <servlet-class>Controller.CouponController</servlet-class>
     </servlet>
 
     <servlet-mapping>

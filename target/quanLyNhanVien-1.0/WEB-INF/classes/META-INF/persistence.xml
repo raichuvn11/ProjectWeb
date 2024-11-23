@@ -3,43 +3,41 @@
 	<persistence-unit name="JPA" transaction-type="JTA">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<jta-data-source>java:/comp/env/JPA</jta-data-source>
-		<class>business.Address</class>
-		<class>business.Cart</class>
-		<class>business.Category</class>
-		<class>business.Conversation</class>
-		<class>business.Coupon</class>
-		<class>business.Customer</class>
-		<class>business.Feedback</class>
-		<class>business.Furniture</class>
-		<class>business.Image</class>
-		<class>business.Message</class>
-		<class>business.Order</class>
-		<class>business.Payment</class>
-		<class>business.Shift</class>
-		<class>business.FurnitureStatus</class>
+		<class>Entity.Address</class>
+		<class>Entity.Cart</class>
+		<class>Entity.Category</class>
+		<class>Entity.Conversation</class>
+		<class>Entity.Coupon</class>
+		<class>Entity.Customer</class>
+		<class>Entity.Feedback</class>
+		<class>Entity.Furniture</class>
+		<class>Entity.Image</class>
+		<class>Entity.Message</class>
+		<class>Entity.Order</class>
+		<class>Entity.Payment</class>
+		<class>Entity.Shift</class>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>
 		</properties>
 	</persistence-unit>
 	<persistence-unit name="JPA-Local">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>business.Address</class>
-		<class>business.Cart</class>
-		<class>business.Category</class>
-		<class>business.Conversation</class>
-		<class>business.Coupon</class>
-		<class>business.Customer</class>
-		<class>business.Feedback</class>
-		<class>business.Furniture</class>
-		<class>business.Image</class>
-		<class>business.Message</class>
-		<class>business.Order</class>
-		<class>business.Payment</class>
-		<class>business.Shift</class>
-		<class>business.FurnitureStatus</class>
-		<class>business.Staff</class>
-		<class>business.Shift</class>
-		<class>business.Review</class>
+		<class>Entity.Address</class>
+		<class>Entity.Cart</class>
+		<class>Entity.Category</class>
+		<class>Entity.Conversation</class>
+		<class>Entity.Coupon</class>
+		<class>Entity.Customer</class>
+		<class>Entity.Feedback</class>
+		<class>Entity.Furniture</class>
+		<class>Entity.Image</class>
+		<class>Entity.Message</class>
+		<class>Entity.Order</class>
+		<class>Entity.Payment</class>
+		<class>Entity.Shift</class>
+		<class>Entity.Staff</class>
+		<class>Entity.Shift</class>
+		<class>Entity.Review</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/project2" />
 			<property name="javax.persistence.jdbc.user" value="root" />
@@ -53,23 +51,21 @@
 	</persistence-unit>
 	<persistence-unit name="JPA-Local2">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>business.Address</class>
-		<class>business.Cart</class>
-		<class>business.Category</class>
-		<class>business.Conversation</class>
-		<class>business.Coupon</class>
-		<class>business.Customer</class>
-		<class>business.Feedback</class>
-		<class>business.Furniture</class>
-		<class>business.Image</class>
-		<class>business.Message</class>
-		<class>business.Order</class>
-		<class>business.Payment</class>
-		<class>business.Shift</class>
-		<class>business.FurnitureStatus</class>
-		<class>business.Staff</class>
-		<class>business.Shift</class>
-		<class>business.Review</class>
+		<class>Entity.Address</class>
+		<class>Entity.Cart</class>
+		<class>Entity.Category</class>
+		<class>Entity.Conversation</class>
+		<class>Entity.Coupon</class>
+		<class>Entity.Customer</class>
+		<class>Entity.Feedback</class>
+		<class>Entity.Furniture</class>
+		<class>Entity.Image</class>
+		<class>Entity.Message</class>
+		<class>Entity.Order</class>
+		<class>Entity.Payment</class>
+		<class>Entity.Shift</class>
+		<class>Entity.Staff</class>
+		<class>Entity.Review</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql-b86aa12-student-189d.e.aivencloud.com:18941/FurnitureStore?ssl-mode=REQUIRED"/>
 			<property name="javax.persistence.jdbc.user" value="avnadmin"/>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="description" content="POS - Bootstrap Admin Template">
-    <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+    <meta name="keywords" content="admin, estimates, bootstrap, Entity, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
     <title>Dreams Pos admin template</title>
@@ -240,7 +240,7 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="listNV.jsp"><img src="assets/img/icons/dashboard.svg" alt="img" class="active"><span> Quản lý nhân viên</span> </a>
+                        <a href="listStaff.jsp"><img src="assets/img/icons/dashboard.svg" alt="img" class="active"><span> Quản lý nhân viên</span> </a>
                     </li>
                 </ul>
                 <ul>
@@ -250,7 +250,7 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="phanca.jsp"><img src="assets/img/icons/dashboard.svg" alt="img" class=""><span>Phân ca làm việc</span> </a>
+                        <a href="setShift.jsp"><img src="assets/img/icons/dashboard.svg" alt="img" class=""><span>Phân ca làm việc</span> </a>
                     </li>
                 </ul>
                 <ul>
@@ -282,7 +282,7 @@
             <div class="page-header">
                 <div class="page-title">
                     <h4>Chi tiết sản phẩm</h4>
-                    <h6>Thông tin đầy đủ về sản phẩm</h6>
+                    <h6>Toàn bộ thông tin chi tiết của một sản phẩm</h6>
                 </div>
             </div>
 
@@ -293,38 +293,34 @@
                             <div class="bar-code-view">
                                 <img src="assets/img/barcode1.png" alt="barcode">
                                 <a class="printimg">
-                                    <img src="assets/img/icons/printer.svg" alt="in">
+                                    <img src="assets/img/icons/printer.svg" alt="print">
                                 </a>
                             </div>
                             <div class="productdetails">
                                 <ul class="product-bar">
                                     <li>
-                                        <h4>Mã sản phẩm</h4>
-                                        <h6>Macbook pro</h6>
-                                    </li>
-                                    <li>
-                                        <h4>Sản phẩm</h4>
-                                        <h6>Macbook pro</h6>
+                                        <h4>Trạng thái</h4>
+                                        <h6>${furniture.furnitureStatus}</h6>
                                     </li>
                                     <li>
                                         <h4>Danh mục</h4>
-                                        <h6>Máy tính</h6>
+                                        <h6>${furniture.categoryName}</h6>
                                     </li>
                                     <li>
                                         <h4>Nhà sản xuất</h4>
-                                        <h6>Không có</h6>
+                                        <h6>${furniture.manufacture}</h6>
                                     </li>
                                     <li>
                                         <h4>Giá</h4>
-                                        <h6>1500.00</h6>
+                                        <h6>${furniture.furniturePrice}</h6>
                                     </li>
                                     <li>
                                         <h4>Màu sắc</h4>
-                                        <h6>Hoạt động</h6>
+                                        <h6>${furniture.furnitureColor}</h6>
                                     </li>
                                     <li>
-                                        <h4>Mô tả</h4>
-                                        <h6>Lorem Ipsum là văn bản giả dùng trong ngành in ấn và dàn trang. Lorem Ipsum đã trở thành tiêu chuẩn ngành từ những năm 1500.</h6>
+                                        <h4>Mô tả sản phẩm</h4>
+                                        <h6>${furniture.furnitureDescription}</h6>
                                     </li>
                                 </ul>
                             </div>
@@ -336,16 +332,14 @@
                         <div class="card-body">
                             <div class="slider-product-details">
                                 <div class="owl-carousel owl-theme product-slide">
-                                    <div class="slider-product">
-                                        <img src="assets/img/product/product69.jpg" alt="img">
-                                        <h4>macbookpro.jpg</h4>
-                                        <h6>581kb</h6>
-                                    </div>
-                                    <div class="slider-product">
-                                        <img src="assets/img/product/product69.jpg" alt="img">
-                                        <h4>macbookpro.jpg</h4>
-                                        <h6>581kb</h6>
-                                    </div>
+                                    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+                                    <c:forEach var="image" items="${furniture.base64ImageData}">
+                                        <div class="slider-product">
+                                            <img src="data:image/jpeg;base64,${image}" alt="img">
+                                            <!-- Tên file ảnh, giả sử bạn có thêm thông tin về tên file trong DTO -->
+                                                <%--                                        <h4>Image</h4>--%>
+                                        </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -358,18 +352,4 @@
 </div>
 
 
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-
-<script src="assets/js/feather.min.js"></script>
-
-<script src="assets/js/jquery.slimscroll.min.js"></script>
-
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-
-<script src="assets/plugins/owlcarousel/owl.carousel.min.js"></script>
-
-<script src="assets/plugins/select2/js/select2.min.js"></script>
-
-<script src="assets/js/script.js"></script>
-</body>
-</html>
+<c:import url="footer.jsp"/>
