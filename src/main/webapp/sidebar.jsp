@@ -26,6 +26,8 @@
                         <li><a href="statistics?page=index3" id="order-status">Trạng Thái Đơn Hàng</a></li>
                     </ul>
                 </li>
+            </ul>
+            <ul>
                 <li id="create-coupon">
                     <a href="CouponController"><img src="assets/img/icons/coupon.svg" alt="img"><span> Tạo Mã Khuyến Mãi</span> </a>
                 </li>

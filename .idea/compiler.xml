@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="quanLyNhanVien" options="-endorseddirs D:\ProjectWeb\target/endorsed" />
+      <module name="quanLyNhanVien" options="-endorseddirs C:\Users\nmtu\OneDrive\LTWEB1\ProjectWeb\target/endorsed" />
     </option>
   </component>
 </project>
