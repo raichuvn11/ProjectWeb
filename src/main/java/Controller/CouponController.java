@@ -95,9 +95,7 @@ public class CouponController extends HttpServlet {
         String useLimitStr = request.getParameter("useLimit");
         String useCondition = request.getParameter("useCondition");
 
-        if (action.equals("add")) {
-            if (CouponDAO.existedCoupon(couponName)) errors.add("Mã khuyến mãi đã tồn tại.");
-        }
+
         double couponValue = parseDouble(couponValueStr, "Giá trị giảm giá phải là số hợp lệ.", errors);
         validateCouponValue(couponType, couponValue, errors);
 
@@ -119,6 +117,17 @@ public class CouponController extends HttpServlet {
             selectedCategories = getSelectedCategories(request.getParameterValues("categoryIds"));
         }
 
+        if (action.equals("add")) {
+            if (CouponDAO.existedCoupon(couponName)) errors.add("Mã khuyến mãi đã tồn tại.");
+        }
+
+        if (action.equals("edit"))
+        {
+            Coupon couponToEdit = couponDAO.getCouponById(couponIdParam);
+            if (couponToEdit != null && !couponName.equals(couponToEdit.getCouponName()) && CouponDAO.existedCoupon(couponName)) {
+                errors.add("Mã khuyến mãi đã tồn tại.");
+            }
+        }
         if (!errors.isEmpty()) {
             saveFormStateToSession(request, couponName, couponType, couponValueStr, startDateStr, endDateStr, useLimitStr, useCondition, minOrderValueStr, selectedCategories, errors);
             redirectToEditOrAddPage(request, response);
