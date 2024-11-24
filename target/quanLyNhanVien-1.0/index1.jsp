@@ -129,7 +129,7 @@
                 <td><a href="javascript:void(0);">${payment.order.id}</a></td>
                 <td>${payment.method}</td>
                 <td>${payment.money}</td>
-                <td><fmt:formatDate value="${payment.paymentDate}" pattern="dd-MM-yyyy"/></td>
+                <td><fmt:formatDate value="${empty payment.paymentDate ? payment.order.orderDate : payment.paymentDate}" pattern="dd-MM-yyyy"/></td>
               </tr>
             </c:forEach>
             </tbody>

@@ -27,7 +27,7 @@
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget">
                         <div class="dash-widgetimg">
-                            <span><img src="assets/img/product/product23.jpg" alt="img"></span>
+                            <span><img src="data:image/png;base64, ${imageLists[0]}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
                             <h5>Bán chạy nhất</h5>
