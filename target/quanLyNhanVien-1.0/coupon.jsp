@@ -187,7 +187,7 @@
                 </div>
 
                 <div class="col-lg-12">
-                  <button type="submit" class="btn btn-submit me-2">Submit</button>
+                  <button type="submit" class="btn btn-submit me-2">Thêm</button>
                 </div>
               </form>
             </div>

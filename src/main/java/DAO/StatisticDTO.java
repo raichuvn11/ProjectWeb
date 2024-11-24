@@ -504,15 +504,10 @@ public class StatisticDTO {
 
     public static List<String> getListImage(List<String> categoryNames) {
         List<String> images = new ArrayList<>();
-
-        // Lặp qua từng tên danh mục trong danh sách
         for (String categoryName : categoryNames) {
-            // Tìm danh mục theo tên
             Category category = findCategoryByName(categoryName);
             if (category != null && !category.getFurnitures().isEmpty()) {
-                // Lấy sản phẩm đầu tiên trong danh mục
                 Furniture firstFurniture = category.getFurnitures().get(0);
-                // Lấy ảnh đại diện của sản phẩm đầu tiên
                 Image representativeImage = firstFurniture.getRepresentativeImage();
                 if (representativeImage != null) {
                     images.add(representativeImage.getBase64Data());
@@ -521,6 +516,19 @@ public class StatisticDTO {
         }
         return images;
     }
+
+    public static List<Furniture> getListFirstFurniture(List<String> categoryNames) {
+        List<Furniture> Furnitures = new ArrayList<>();
+        for (String categoryName : categoryNames) {
+            Category category = findCategoryByName(categoryName);
+            if (category != null && !category.getFurnitures().isEmpty()) {
+                Furniture firstFurniture = category.getFurnitures().get(0);
+                Furnitures.add(firstFurniture);
+            }
+        }
+        return Furnitures;
+    }
+
     private static Category findCategoryByName(String categoryName) {
         // Sử dụng EntityManager để tìm danh mục từ cơ sở dữ liệu
         EntityManager em = DBUtil.getEntityManager();

@@ -118,10 +118,10 @@
                                                 <tr>
                                                     <td>${status.index + 1}</td>
                                                     <td class="productimgname">
-                                                        <a href="javascript:void(0);" class="product-img">
+                                                        <a href="product-controller?action=displayDetailFurniture&amp;id=${listFirstFurniture[status.index].id}" class="product-img">
                                                             <img src="data:image/png;base64, ${imageLists[status.index]}" alt="product">
                                                         </a>
-                                                        <a href="javascript:void(0);">${category}</a>
+                                                        <a href="product-controller?action=displayDetailFurniture&amp;id=${listFirstFurniture[status.index].id}">${category}</a>
                                                     </td>
                                                     <td>${categorySales[status.index]}</td>
                                                 </tr>
@@ -152,10 +152,10 @@
                                     <tr>
                                         <td>${status.index + 1}</td>
                                         <td class="productimgname">
-                                            <a class="product-img" href="javascript:void(0);">
+                                            <a class="product-img" href="product-controller?action=displayDetailFurniture&amp;id=${listFirstFurniture[status.index].id}">
                                                 <img src="data:image/png;base64, ${imageLists[status.index]}" alt="product">
                                             </a>
-                                            <a href="javascript:void(0);">${category}</a>
+                                            <a href="product-controller?action=displayDetailFurniture&amp;id=${listFirstFurniture[status.index].id}">${category}</a>
                                         </td>
                                         <td>${categorySales[status.index]}</td>
                                         <td>${categoryRevenues[status.index]}</td>

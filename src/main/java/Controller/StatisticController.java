@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+
+import Entity.Furniture;
 import com.google.gson.Gson;
 
 import Entity.Payment;
@@ -107,7 +109,7 @@ public class StatisticController extends HttpServlet {
             Long totalSale = StatisticDTO.getTotalSalesByCategory();
 
             List<String> imageLists = StatisticDTO.getListImage(categoriesName);
-
+            List<Furniture> listFirstFurniture = StatisticDTO.getListFirstFurniture(categoriesName);
 
             request.setAttribute("categorySales", sales);
             request.setAttribute("topCategoriesName", topCategoriesName);
@@ -116,6 +118,7 @@ public class StatisticController extends HttpServlet {
             request.setAttribute("categoryRevenues", revenues);
             request.setAttribute("totalSale", totalSale);
             request.setAttribute("imageLists", imageLists);
+            request.setAttribute("listFirstFurniture", listFirstFurniture);
             request.setAttribute("year", "Tất Cả");
         }
         else
@@ -135,6 +138,7 @@ public class StatisticController extends HttpServlet {
 
             List<String> imageLists = StatisticDTO.getListImage(categoriesName);
 
+            List<Furniture> listFirstFurniture = StatisticDTO.getListFirstFurniture(categoriesName);
 
             request.setAttribute("categorySales", sales);
             request.setAttribute("topCategoriesName", topCategoriesName);
@@ -143,6 +147,7 @@ public class StatisticController extends HttpServlet {
             request.setAttribute("categoryRevenues", revenues);
             request.setAttribute("totalSale", totalSale);
             request.setAttribute("imageLists", imageLists);
+            request.setAttribute("listFirstFurniture", listFirstFurniture);
             request.setAttribute("year", year);
 
         }
